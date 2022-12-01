@@ -5,11 +5,11 @@
 class Weatherme < Formula
   desc ""
   homepage "https://github.com/eoin-barr/weatherme"
-  version "2.1"
+  version "2.2"
 
   on_macos do
-    url "https://github.com/eoin-barr/weatherme/releases/download/v2.1/weatherme_2.1_darwin_all.tar.gz"
-    sha256 "74ab32664b4b275e4380d6abee806d7b2923abe5372b17b152e9e0c1f2412583"
+    url "https://github.com/eoin-barr/weatherme/releases/download/v2.2/weatherme_2.2_darwin_all.tar.gz"
+    sha256 "904ef12f320cb210aec50e465dd3e6742b812655ac8c54febe4e304f4cec1cb5"
 
     def install
       bin.install "weatherme"
@@ -17,17 +17,17 @@ class Weatherme < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/eoin-barr/weatherme/releases/download/v2.1/weatherme_2.1_linux_arm64.tar.gz"
-      sha256 "57eebab050cdefea3594bec24930c685e21affe5a43ec0cccb667db1ab88909d"
+    if Hardware::CPU.intel?
+      url "https://github.com/eoin-barr/weatherme/releases/download/v2.2/weatherme_2.2_linux_amd64.tar.gz"
+      sha256 "160b3c3e16b7eb4b2aa80f9effdc7fe3d42bed510f090d9250268e69b008c68e"
 
       def install
         bin.install "weatherme"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/eoin-barr/weatherme/releases/download/v2.1/weatherme_2.1_linux_amd64.tar.gz"
-      sha256 "c0b4abb568ca123316fd717484c4fddb8a707d793337e59c16a96915b5b41cb4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/eoin-barr/weatherme/releases/download/v2.2/weatherme_2.2_linux_arm64.tar.gz"
+      sha256 "04ac8adf38668eae926186de33e4e980649305990db389c253a8fadb608a5dc1"
 
       def install
         bin.install "weatherme"
